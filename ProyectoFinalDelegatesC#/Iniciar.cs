@@ -12,6 +12,9 @@ namespace ProyectoFinalDelegatesC_
 {
     public partial class Iniciar : Form
     {
+
+        string Nombre;
+        string Correo;
         public Iniciar()
         {
             InitializeComponent();
@@ -19,7 +22,14 @@ namespace ProyectoFinalDelegatesC_
 
         private void Iniciar_Load(object sender, EventArgs e)
         {
+            nombreUsuario.Text = Nombre;
+        }
 
+        public void SetInformacion(string nombre, string correo)
+        {
+            Nombre = nombre;
+            Correo = correo;
+            
         }
     }
 }

@@ -25,6 +25,7 @@ namespace ProyectoFinalDelegatesC_
             else{
                 this.Hide();
                 Iniciar iniciar = new Iniciar();
+                iniciar.SetInformacion(usuario1.Nombre, usuario1.Correo);
                 iniciar.Show();
             }
     
