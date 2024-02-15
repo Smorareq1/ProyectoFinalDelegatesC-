@@ -9,9 +9,9 @@ namespace ProyectoFinalDelegatesC_
 {
     internal class Usuario
     {
-        public static string Nombre { get; set; }
-        public static string Correo { get; set; }
-        public static string Contrasena { get; set; }
+        public string Nombre { get; set; }
+        public string Correo { get; set; }
+        public string Contrasena { get; set; }
 
         public Usuario(string nombre, string correo, string contrasena)
         {
