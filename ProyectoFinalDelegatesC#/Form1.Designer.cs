@@ -35,6 +35,9 @@
             label4 = new Label();
             label5 = new Label();
             button1 = new Button();
+            textBox2 = new TextBox();
+            textBox3 = new TextBox();
+            textBox4 = new TextBox();
             SuspendLayout();
             // 
             // textBox1
@@ -98,12 +101,37 @@
             button1.TabIndex = 6;
             button1.Text = "Crear Usuario";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(581, 202);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(125, 27);
+            textBox2.TabIndex = 7;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(581, 254);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(125, 27);
+            textBox3.TabIndex = 8;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(581, 308);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(125, 27);
+            textBox4.TabIndex = 9;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 600);
+            Controls.Add(textBox4);
+            Controls.Add(textBox3);
+            Controls.Add(textBox2);
             Controls.Add(button1);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -128,5 +156,8 @@
         private Label label4;
         private Label label5;
         private Button button1;
+        private TextBox textBox2;
+        private TextBox textBox3;
+        private TextBox textBox4;
     }
 }

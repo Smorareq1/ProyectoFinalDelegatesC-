@@ -11,5 +11,10 @@ namespace ProyectoFinalDelegatesC_
         {
             MessageBox.Show("Bienvenido al sistema de ventas");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
