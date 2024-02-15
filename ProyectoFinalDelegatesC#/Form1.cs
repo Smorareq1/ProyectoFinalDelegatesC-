@@ -9,7 +9,7 @@ namespace ProyectoFinalDelegatesC_
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Bienvenido al sistema de ventas");
         }
     }
 }
