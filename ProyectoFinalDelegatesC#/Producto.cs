@@ -16,16 +16,17 @@ namespace ProyectoFinalDelegatesC_
         public int Cantidad { get; set; }
         public string Descripcion { get; set; }
 
-        
+        public string Categoria { get; set; }
 
         //Constructor
 
-        public Producto(string nombre, double precio, int cantidad, string descripcion)
+        public Producto(string nombre, double precio, int cantidad, string descripcion, string categoria)
         {
             Nombre = nombre;
             Precio = precio;
             Cantidad = cantidad;
             Descripcion = descripcion;
+            Categoria = categoria;
         }
 
         

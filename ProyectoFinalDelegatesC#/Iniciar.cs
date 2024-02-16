@@ -60,7 +60,6 @@ namespace ProyectoFinalDelegatesC_
 
             ////////////////////////////
             GestorDeArchivos.MostrarProductos();
-
             //////////////////////
 
             LlenarDataGridView();
@@ -79,19 +78,22 @@ namespace ProyectoFinalDelegatesC_
             dataGridView1.Columns.Add("PrecioColumn", "Precio");
             dataGridView1.Columns.Add("CantidadColumn", "Cantidad");
             dataGridView1.Columns.Add("DescripcionColumn", "Descripción");
+            dataGridView1.Columns.Add("CategoriaColumn", "Categoría");
 
             // Recorrer los productos y agregarlos al DataGridView
             foreach (var producto in GestorDeArchivos.productos)
             {
-                if (producto != null) // Asegurarse de que el producto no sea nulo
+                
+                if (producto != null)
                 {
                     // Agregar una fila al DataGridView con los datos del producto
-                    dataGridView1.Rows.Add(producto.Nombre, producto.Precio, producto.Cantidad, producto.Descripcion);
+                    dataGridView1.Rows.Add(producto.Nombre, producto.Precio, producto.Cantidad, producto.Descripcion, producto.Categoria);
                 }
             }
 
             dataGridView1.AutoResizeColumns();
         }
+
 
     }
 }

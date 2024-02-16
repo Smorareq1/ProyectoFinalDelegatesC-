@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,27 +9,13 @@ namespace ProyectoFinalDelegatesC_
 {
     internal class GestorDeArchivos
     {
-        //Variables
-        public static Producto[] productos = new Producto[20];
-        private static int indice = 0;
+        // Lista para almacenar los productos
+        public static List<Producto> productos = new List<Producto>();
 
-           
-
-
-        public static void AgregarProductoAMatriz(string nombre, double precio, int cantidad, string descripcion)
+        public static void AgregarProductoALista(string nombre, double precio, int cantidad, string descripcion, string categoria)
         {
-            // Verificamos si ya alcanzamos la capacidad máxima de la matriz
-            if (indice < productos.Length)
-            {
-                // Creamos un nuevo producto y lo agregamos a la matriz
-                productos[indice] = new Producto(nombre, precio, cantidad, descripcion);
-                // Incrementamos el índice para la siguiente posición disponible
-                indice++;
-            }
-            else
-            {
-                Console.WriteLine("La matriz de productos está llena.");
-            }
+            // Creamos un nuevo producto y lo agregamos a la lista
+            productos.Add(new Producto(nombre, precio, cantidad, descripcion, categoria));
         }
 
         public static void LeerArchivo(string rutaArchivo)
@@ -40,23 +27,20 @@ namespace ProyectoFinalDelegatesC_
 
                 foreach (string linea in lineas)
                 {
-                    // Dividir la línea en las partes usando la coma como separador
+                    // Dividimos cada línea en sus partes usando la coma como separador
                     string[] partes = linea.Split(',');
 
-                    // Asegurar que haya al menos 4 partes para crear un producto
-                    if (partes.Length >= 4)
+                    // Aseguramos que tenemos suficientes partes para crear un producto
+                    if (partes.Length >= 5)
                     {
-                        // Las tres primeras partes son nombre, precio y cantidad, la última es la descripción
                         string nombre = partes[0].Trim();
-
-                        // Unir las partes de la descripción con comas en caso de que haya más de 4 partes
-                        string descripcion = string.Join(",", partes.Skip(3)).Trim();
-
                         double precio = Convert.ToDouble(partes[1].Trim());
                         int cantidad = Convert.ToInt32(partes[2].Trim());
+                        string descripcion = partes[3].Trim();
+                        string categoria = partes[4].Trim();
 
-                        // Agregar el producto a la matriz
-                        AgregarProductoAMatriz(nombre, precio, cantidad, descripcion);
+                        // Agregamos el producto a la lista
+                        AgregarProductoALista(nombre, precio, cantidad, descripcion, categoria);
                     }
                     else
                     {
@@ -72,19 +56,12 @@ namespace ProyectoFinalDelegatesC_
 
         public static void MostrarProductos()
         {
-            if (productos.Length > 1)
+            if (productos.Count > 0)
             {
                 // Recorrer todos los productos y mostrar sus propiedades en un MessageBox
-                for (int i = 0; i < productos.Length; i++)
+                foreach (var producto in productos)
                 {
-                    if (productos[i] != null)
-                    {
-                        MessageBox.Show($"Producto {i + 1} - Nombre: {productos[i].Nombre}, Precio: {productos[i].Precio}, Cantidad: {productos[i].Cantidad}, Descripción: {productos[i].Descripcion}");
-                    }
-                    else
-                    {
-                        MessageBox.Show($"Producto {i + 1} no está disponible.");
-                    }
+                    MessageBox.Show($"Nombre: {producto.Nombre}, Precio: {producto.Precio}, Cantidad: {producto.Cantidad}, Descripción: {producto.Descripcion}, Categoría: {producto.Categoria}");
                 }
             }
             else
@@ -93,5 +70,19 @@ namespace ProyectoFinalDelegatesC_
             }
         }
 
+        public static void BuscarProductoPorNombre(string nombre)
+        {
+            // Buscar un producto por su nombre
+            Producto producto = productos.Find(p => p.Nombre == nombre);
+
+            if (producto != null)
+            {
+                MessageBox.Show($"Nombre: {producto.Nombre}, Precio: {producto.Precio}, Cantidad: {producto.Cantidad}, Descripción: {producto.Descripcion}, Categoría: {producto.Categoria}");
+            }
+            else
+            {
+                MessageBox.Show("No se encontró el producto con el nombre especificado.");
+            }
+        }   
     }
 }
