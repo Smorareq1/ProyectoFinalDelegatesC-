@@ -86,6 +86,11 @@ namespace ProyectoFinalDelegatesC_
                 MessageBox.Show("No se encontró el producto con el nombre especificado.");
                 return null;
             }
-        }   
+        } 
+        
+        public static void ListaSize()
+        {
+            MessageBox.Show("El tamaño de la lista es: " + productos.Count);
+        }
     }
 }
