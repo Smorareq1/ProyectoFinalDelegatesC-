@@ -50,7 +50,7 @@ namespace ProyectoFinalDelegatesC_
             }
         }
 
-        public static Usuario BuscarUsuarioPorNombre(string nombre)
+        public static Usuario BuscarUsuarioPorNombre(string nombre) // que pasa si hay dos usuarios con el mismo nombre? // decir que el usuario ya existe y que no se puede agregar
         {
             
             Usuario usuarioEncontrado = ListaUsuarios.Find(u => u.Nombre == nombre);
