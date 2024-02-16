@@ -70,7 +70,8 @@ namespace ProyectoFinalDelegatesC_
             }
         }
 
-        public static void BuscarProductoPorNombre(string nombre)
+
+        public static Producto BuscarProductoPorNombre(string nombre)
         {
             // Buscar un producto por su nombre
             Producto producto = productos.Find(p => p.Nombre == nombre);
@@ -78,10 +79,12 @@ namespace ProyectoFinalDelegatesC_
             if (producto != null)
             {
                 MessageBox.Show($"Nombre: {producto.Nombre}, Precio: {producto.Precio}, Cantidad: {producto.Cantidad}, Descripción: {producto.Descripcion}, Categoría: {producto.Categoria}");
+                return producto;
             }
             else
             {
                 MessageBox.Show("No se encontró el producto con el nombre especificado.");
+                return null;
             }
         }   
     }
