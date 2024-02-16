@@ -10,5 +10,9 @@ namespace ProyectoFinalDelegatesC_
     {
         Usuario Usuario { get; set; }
 
+        //Crear usuarios predefinidos
+        Usuario usuario1 = new Usuario("Juan", "Juan1@gmail.com", "1234");
+        
+
     }
 }
