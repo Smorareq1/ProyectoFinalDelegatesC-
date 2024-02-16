@@ -26,6 +26,8 @@ namespace ProyectoFinalDelegatesC_
         private void Iniciar_Load(object sender, EventArgs e)
         {
             nombreUsuario.Text = Nombre;
+
+            
         }
 
         public void SetInformacion(string nombre, string correo)
@@ -53,10 +55,43 @@ namespace ProyectoFinalDelegatesC_
                 MessageBox.Show("Ruta del archivo seleccionado: " + filePath);
             }
 
-            Producto.LeerArchivo(filePath);
+            GestorDeArchivos.LeerArchivo(filePath);
             MessageBox.Show("Archivo leído con éxito");
+
+            ////////////////////////////
+            GestorDeArchivos.MostrarProductos();
+
+            //////////////////////
+
+            LlenarDataGridView();
 
 
         }
+
+        private void LlenarDataGridView()
+        {
+            // Limpiar cualquier dato existente en el DataGridView
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear(); // Limpiar columnas también
+
+            // Agregar las columnas al DataGridView
+            dataGridView1.Columns.Add("NombreColumn", "Nombre");
+            dataGridView1.Columns.Add("PrecioColumn", "Precio");
+            dataGridView1.Columns.Add("CantidadColumn", "Cantidad");
+            dataGridView1.Columns.Add("DescripcionColumn", "Descripción");
+
+            // Recorrer los productos y agregarlos al DataGridView
+            foreach (var producto in GestorDeArchivos.productos)
+            {
+                if (producto != null) // Asegurarse de que el producto no sea nulo
+                {
+                    // Agregar una fila al DataGridView con los datos del producto
+                    dataGridView1.Rows.Add(producto.Nombre, producto.Precio, producto.Cantidad, producto.Descripcion);
+                }
+            }
+
+            dataGridView1.AutoResizeColumns();
+        }
+
     }
 }

@@ -32,6 +32,8 @@
             nombreUsuario = new Label();
             button1 = new Button();
             openFileDialog1 = new OpenFileDialog();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -54,7 +56,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(295, 99);
+            button1.Location = new Point(312, 60);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 2;
@@ -66,11 +68,20 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(66, 128);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(574, 198);
+            dataGridView1.TabIndex = 3;
+            // 
             // Iniciar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
+            Controls.Add(dataGridView1);
             Controls.Add(button1);
             Controls.Add(nombreUsuario);
             Controls.Add(label1);
@@ -78,6 +89,7 @@
             Name = "Iniciar";
             Text = "Iniciar";
             Load += Iniciar_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -88,5 +100,6 @@
         private Label nombreUsuario;
         private Button button1;
         private OpenFileDialog openFileDialog1;
+        private DataGridView dataGridView1;
     }
 }
