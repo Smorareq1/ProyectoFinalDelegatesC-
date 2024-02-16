@@ -1,7 +1,12 @@
 namespace ProyectoFinalDelegatesC_
 {
     public partial class Form1 : Form
-    {
+    {   
+
+        //Variables
+        string filePath;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -14,20 +19,54 @@ namespace ProyectoFinalDelegatesC_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            string nombre = textBox1.Text.Trim();
+            string contrasena = textBox3.Text.Trim();
+
+            // Buscar el usuario por su nombre
+            Usuario usuario = GestorDeUsuarios.BuscarUsuarioPorNombre(nombre);
+
+            if (usuario != null)
+            {
+                // Verificar si la contraseña coincide
+                if (usuario.Contrasena == contrasena)
+                {
+                    // Si la contraseña coincide, puedes mostrar el otro formulario
+                    this.Hide();
+                    Iniciar iniciar = new Iniciar();
+                    iniciar.SetInformacion(nombre, usuario.Correo);
+                    iniciar.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Contraseña incorrecta");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usuario no encontrado");
+            }
+        }
 
 
-                string Contrasena1 = textBox3.Text.ToString();
-            
-
-            
+        private void button2_Click(object sender, EventArgs e)
+        {
            
-                this.Hide();
-                Iniciar iniciar = new Iniciar();
-                iniciar.SetInformacion(usuario1.Nombre, usuario1.Correo);
-                iniciar.Show();
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
             
-    
+            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.Filter = "Archivos de texto (*.txt)|*.txt|Archivos CSV (*.csv)|*.csv";
+            openFileDialog1.FilterIndex = 1; // Índice del filtro predeterminado
+
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                filePath = openFileDialog1.FileName;
+                MessageBox.Show("Ruta del archivo seleccionado: " + filePath);
+            }
+
+            GestorDeUsuarios.CargarUsuariosDesdeArchivo(filePath);
+            MessageBox.Show("Archivo leído con éxito");
         }
     }
 }
