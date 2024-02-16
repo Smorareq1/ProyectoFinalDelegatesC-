@@ -50,17 +50,17 @@
             nombreUsuario.AutoSize = true;
             nombreUsuario.Location = new Point(76, 11);
             nombreUsuario.Name = "nombreUsuario";
-            nombreUsuario.Size = new Size(38, 15);
+            nombreUsuario.Size = new Size(47, 15);
             nombreUsuario.TabIndex = 1;
-            nombreUsuario.Text = "label2";
+            nombreUsuario.Text = "Usuario";
             // 
             // button1
             // 
-            button1.Location = new Point(312, 60);
+            button1.Location = new Point(276, 59);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(143, 23);
             button1.TabIndex = 2;
-            button1.Text = "button1";
+            button1.Text = "Cargar Productos";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 

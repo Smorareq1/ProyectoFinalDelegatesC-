@@ -20,22 +20,22 @@ namespace ProyectoFinalDelegatesC_
         {
             try
             {
-                // Leemos todas las líneas del archivo
+                
                 string[] lineas = File.ReadAllLines(rutaArchivo);
 
                 foreach (string linea in lineas)
                 {
-                    // Dividimos cada línea en sus partes usando la coma como separador
+                    
                     string[] partes = linea.Split(',');
 
-                    // Aseguramos que tenemos suficientes partes para crear un usuario
+                   
                     if (partes.Length >= 3)
                     {
                         string nombre = partes[0].Trim();
                         string correo = partes[1].Trim();
                         string contrasena = partes[2].Trim();
 
-                        // Creamos el usuario y lo agregamos a la lista
+                        
                         AgregarUsuarioALista(nombre, correo, contrasena);
                     }
                     else
@@ -52,12 +52,12 @@ namespace ProyectoFinalDelegatesC_
 
         public static Usuario BuscarUsuarioPorNombre(string nombre)
         {
-            // Buscar el usuario por su nombre en la lista de usuarios
+            
             Usuario usuarioEncontrado = ListaUsuarios.Find(u => u.Nombre == nombre);
 
             if (usuarioEncontrado != null)
             {
-                return usuarioEncontrado; // Devolver el usuario encontrado
+                return usuarioEncontrado; //devuelve el usuario para poder poner los atributos :3
             }
             else
             {
