@@ -59,7 +59,7 @@ namespace ProyectoFinalDelegatesC_
             MessageBox.Show("Archivo leído con éxito");
 
             ////////////////////////////
-            GestorDeArchivos.MostrarProductos();
+            //GestorDeArchivos.MostrarProductos();
             //////////////////////
 
             LlenarDataGridView();
@@ -81,9 +81,9 @@ namespace ProyectoFinalDelegatesC_
             dataGridView1.Columns.Add("CategoriaColumn", "Categoría");
 
             // Recorrer los productos y agregarlos al DataGridView
-            foreach (var producto in GestorDeArchivos.productos)
+            foreach (var producto in GestorDeArchivos.productos.Values)
             {
-                
+
                 if (producto != null)
                 {
                     // Agregar una fila al DataGridView con los datos del producto

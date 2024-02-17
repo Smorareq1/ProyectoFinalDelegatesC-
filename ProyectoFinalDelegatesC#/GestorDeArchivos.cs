@@ -9,13 +9,21 @@ namespace ProyectoFinalDelegatesC_
 {
     internal class GestorDeArchivos
     {
-        // Lista para almacenar los productos
-        public static List<Producto> productos = new List<Producto>();
+        // Diccionario para almacenar los productos, utilizando el nombre como clave
+        public static Dictionary<string, Producto> productos = new Dictionary<string, Producto>();
 
         public static void AgregarProductoALista(string nombre, double precio, int cantidad, string descripcion, string categoria)
         {
-            // Creamos un nuevo producto y lo agregamos a la lista
-            productos.Add(new Producto(nombre, precio, cantidad, descripcion, categoria));
+            // Si el producto ya está en el diccionario, sumamos la cantidad
+            if (productos.ContainsKey(nombre))
+            {
+                productos[nombre].Cantidad += cantidad;
+            }
+            else
+            {
+                // Si no está en el diccionario, creamos un nuevo producto y lo agregamos
+                productos.Add(nombre, new Producto(nombre, precio, cantidad, descripcion, categoria));
+            }
         }
 
         public static void LeerArchivo(string rutaArchivo)
@@ -39,7 +47,7 @@ namespace ProyectoFinalDelegatesC_
                         string descripcion = partes[3].Trim();
                         string categoria = partes[4].Trim();
 
-                        // Agregamos el producto a la lista
+                        // Agregamos el producto al diccionario
                         AgregarProductoALista(nombre, precio, cantidad, descripcion, categoria);
                     }
                     else
@@ -59,7 +67,7 @@ namespace ProyectoFinalDelegatesC_
             if (productos.Count > 0)
             {
                 // Recorrer todos los productos y mostrar sus propiedades en un MessageBox
-                foreach (var producto in productos)
+                foreach (var producto in productos.Values)
                 {
                     MessageBox.Show($"Nombre: {producto.Nombre}, Precio: {producto.Precio}, Cantidad: {producto.Cantidad}, Descripción: {producto.Descripcion}, Categoría: {producto.Categoria}");
                 }
@@ -70,14 +78,12 @@ namespace ProyectoFinalDelegatesC_
             }
         }
 
-
         public static Producto BuscarProductoPorNombre(string nombre)
         {
-            // Buscar un producto por su nombre
-            Producto producto = productos.Find(p => p.Nombre == nombre);
-
-            if (producto != null)
+            // Buscar un producto por su nombre en el diccionario
+            if (productos.ContainsKey(nombre))
             {
+                Producto producto = productos[nombre];
                 MessageBox.Show($"Nombre: {producto.Nombre}, Precio: {producto.Precio}, Cantidad: {producto.Cantidad}, Descripción: {producto.Descripcion}, Categoría: {producto.Categoria}");
                 return producto;
             }
@@ -86,11 +92,32 @@ namespace ProyectoFinalDelegatesC_
                 MessageBox.Show("No se encontró el producto con el nombre especificado.");
                 return null;
             }
-        } 
-        
+        }
+
         public static void ListaSize()
         {
             MessageBox.Show("El tamaño de la lista es: " + productos.Count);
         }
+
+        public static List<Producto> BuscarProductosPorCategoria(string categoria)
+        {
+            List<Producto> productosPorCategoria = new List<Producto>();
+
+            foreach (var producto in productos.Values)
+            {
+                if (producto.Categoria.Equals(categoria, StringComparison.OrdinalIgnoreCase))
+                {
+                    productosPorCategoria.Add(producto);
+                }
+            }
+
+            if (productosPorCategoria.Count == 0)
+            {
+                MessageBox.Show($"No se encontraron productos en la categoría \"{categoria}\".");
+            }
+
+            return productosPorCategoria;
+        }
+
     }
 }

@@ -25,7 +25,7 @@ namespace ProyectoFinalDelegatesC_
             // Buscar el usuario por su nombre
             Usuario usuario = GestorDeUsuarios.BuscarUsuarioPorNombre(nombre);
 
-            if (usuario != null)
+            if (usuario != null) //null regresaria si no encuentra nada 
             {
                 // Verificar si la contraseña coincide
                 if (usuario.Contrasena == contrasena)

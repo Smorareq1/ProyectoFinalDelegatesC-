@@ -9,33 +9,38 @@ namespace ProyectoFinalDelegatesC_
 {
     internal class GestorDeUsuarios
     {
-        public static List<Usuario> ListaUsuarios = new List<Usuario>();
+        public static Dictionary<string, Usuario> Usuarios = new Dictionary<string, Usuario>();
 
         public static void AgregarUsuarioALista(string nombre, string correo, string contrasena)
         {
-            ListaUsuarios.Add(new Usuario(nombre, correo, contrasena));
+            // Verificar si el usuario ya existe en el diccionario
+            if (Usuarios.ContainsKey(nombre))
+            {
+                MessageBox.Show("El usuario ya existe.");
+                return;
+            }
+
+            // Agregar el usuario al diccionario
+            Usuarios.Add(nombre, new Usuario(nombre, correo, contrasena));
         }
 
         public static void CargarUsuariosDesdeArchivo(string rutaArchivo)
         {
             try
             {
-                
                 string[] lineas = File.ReadAllLines(rutaArchivo);
 
                 foreach (string linea in lineas)
                 {
-                    
                     string[] partes = linea.Split(',');
 
-                   
                     if (partes.Length >= 3)
                     {
                         string nombre = partes[0].Trim();
                         string correo = partes[1].Trim();
                         string contrasena = partes[2].Trim();
 
-                        
+                        // Agregar el usuario al diccionario
                         AgregarUsuarioALista(nombre, correo, contrasena);
                     }
                     else
@@ -50,14 +55,12 @@ namespace ProyectoFinalDelegatesC_
             }
         }
 
-        public static Usuario BuscarUsuarioPorNombre(string nombre) // que pasa si hay dos usuarios con el mismo nombre? // decir que el usuario ya existe y que no se puede agregar
+        public static Usuario BuscarUsuarioPorNombre(string nombre)
         {
-            
-            Usuario usuarioEncontrado = ListaUsuarios.Find(u => u.Nombre == nombre);
-
-            if (usuarioEncontrado != null)
+            // Buscar un usuario por su nombre en el diccionario
+            if (Usuarios.ContainsKey(nombre))
             {
-                return usuarioEncontrado; //devuelve el usuario para poder poner los atributos :3
+                return Usuarios[nombre]; // Devuelve el usuario encontrado
             }
             else
             {
@@ -65,8 +68,6 @@ namespace ProyectoFinalDelegatesC_
                 return null;
             }
         }
-
-
-
     }
+
 }
