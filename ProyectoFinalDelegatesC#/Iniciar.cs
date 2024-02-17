@@ -27,7 +27,7 @@ namespace ProyectoFinalDelegatesC_
         {
             nombreUsuario.Text = Nombre;
 
-            
+
         }
 
         public void SetInformacion(string nombre, string correo)
@@ -43,11 +43,11 @@ namespace ProyectoFinalDelegatesC_
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             // Configurar propiedades del diálogo
-            openFileDialog1.InitialDirectory = "c:\\"; 
-            openFileDialog1.Filter = "Archivos de texto (*.txt)|*.txt|Archivos CSV (*.csv)|*.csv"; 
+            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.Filter = "Archivos de texto (*.txt)|*.txt|Archivos CSV (*.csv)|*.csv";
             openFileDialog1.FilterIndex = 1; // Índice del filtro predeterminado
 
-            
+
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 // Obtener la ruta del archivo seleccionado
@@ -56,7 +56,7 @@ namespace ProyectoFinalDelegatesC_
             }
 
             GestorDeArchivos.LeerArchivo(filePath);
-            MessageBox.Show("Archivo leído con éxito");
+            filePath = null;
 
             ////////////////////////////
             //GestorDeArchivos.MostrarProductos();
@@ -94,6 +94,18 @@ namespace ProyectoFinalDelegatesC_
             dataGridView1.AutoResizeColumns();
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            LlenarDataGridView();
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string filtrarNombre = textBox1.Text.Trim();
+
+            Producto producto = GestorDeArchivos.BuscarProductoPorNombre(filtrarNombre);
+
+
+        }
     }
 }
