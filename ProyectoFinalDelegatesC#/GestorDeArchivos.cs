@@ -77,7 +77,7 @@ namespace ProyectoFinalDelegatesC_
                 MessageBox.Show("No hay suficientes productos disponibles.");
             }
         }
-
+        
         public static Producto BuscarProductoPorNombre(string nombre)
         {
             // Buscar un producto por su nombre en el diccionario
