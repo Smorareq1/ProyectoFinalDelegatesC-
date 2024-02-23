@@ -32,13 +32,15 @@
             openFileDialog1 = new OpenFileDialog();
             label1 = new Label();
             button2 = new Button();
+            NombreProducto = new TextBox();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(669, 12);
+            button1.Location = new Point(765, 16);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(119, 23);
+            button1.Size = new Size(136, 31);
             button1.TabIndex = 0;
             button1.Text = "Abrir Archivo";
             button1.UseVisualStyleBackColor = true;
@@ -51,30 +53,40 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 93);
+            label1.Location = new Point(14, 124);
             label1.Name = "label1";
-            label1.Size = new Size(54, 15);
+            label1.Size = new Size(67, 20);
             label1.TabIndex = 1;
             label1.Text = "Nombre:";
             // 
             // button2
             // 
-            button2.Location = new Point(12, 12);
+            button2.Location = new Point(14, 16);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(64, 42);
+            button2.Size = new Size(73, 56);
             button2.TabIndex = 2;
             button2.Text = "Regresar";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // NombreProducto
+            // 
+            NombreProducto.Location = new Point(120, 121);
+            NombreProducto.Name = "NombreProducto";
+            NombreProducto.Size = new Size(125, 27);
+            NombreProducto.TabIndex = 3;
+            // 
             // Agregar
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
+            Controls.Add(NombreProducto);
             Controls.Add(button2);
             Controls.Add(label1);
             Controls.Add(button1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Agregar";
             Text = "Agregar";
             ResumeLayout(false);
@@ -87,5 +99,6 @@
         private OpenFileDialog openFileDialog1;
         private Label label1;
         private Button button2;
+        private TextBox NombreProducto;
     }
 }
