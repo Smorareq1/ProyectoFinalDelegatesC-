@@ -137,7 +137,7 @@ namespace ProyectoFinalDelegatesC_
                 return null;
             }
             
-            return productosCoincidentes;
+            return productosCoincidentes; 
         }       
 
     }
