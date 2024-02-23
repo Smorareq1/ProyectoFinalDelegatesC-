@@ -35,12 +35,12 @@
             dataGridView1 = new DataGridView();
             label2 = new Label();
             label3 = new Label();
-            button2 = new Button();
             textBox1 = new TextBox();
-            textBox2 = new TextBox();
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
+            button2 = new Button();
+            comboBox1 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -105,29 +105,12 @@
             label3.TabIndex = 5;
             label3.Text = "Filtrar por Categoria: ";
             // 
-            // button2
-            // 
-            button2.Location = new Point(446, 538);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(86, 31);
-            button2.TabIndex = 6;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // textBox1
             // 
             textBox1.Location = new Point(206, 401);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(223, 27);
             textBox1.TabIndex = 7;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(206, 453);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(223, 27);
-            textBox2.TabIndex = 8;
             // 
             // button3
             // 
@@ -158,17 +141,34 @@
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
+            // button2
+            // 
+            button2.Location = new Point(149, 530);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 12;
+            button2.Text = "Compra";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(206, 454);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(151, 28);
+            comboBox1.TabIndex = 13;
+            // 
             // Iniciar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(983, 617);
+            Controls.Add(comboBox1);
+            Controls.Add(button2);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
-            Controls.Add(textBox2);
             Controls.Add(textBox1);
-            Controls.Add(button2);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(dataGridView1);
@@ -192,11 +192,11 @@
         private DataGridView dataGridView1;
         private Label label2;
         private Label label3;
-        private Button button2;
         private TextBox textBox1;
-        private TextBox textBox2;
         private Button button3;
         private Button button4;
         private Button button5;
+        private Button button2;
+        private ComboBox comboBox1;
     }
 }
