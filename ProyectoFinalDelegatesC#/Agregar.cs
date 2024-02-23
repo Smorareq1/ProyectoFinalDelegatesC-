@@ -44,7 +44,7 @@ namespace ProyectoFinalDelegatesC_
 
 
 
-            GestorDeArchivos.MostrarProductos();
+            //GestorDeArchivos.MostrarProductos();
 
         }
 

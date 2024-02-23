@@ -69,7 +69,7 @@
             button4.Name = "button4";
             button4.Size = new Size(75, 72);
             button4.TabIndex = 3;
-            button4.Text = "button4";
+            button4.Text = "ACTUALIZAR";
             button4.UseVisualStyleBackColor = true;
             // 
             // Menu
