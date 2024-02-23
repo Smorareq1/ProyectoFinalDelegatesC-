@@ -32,9 +32,9 @@ namespace ProyectoFinalDelegatesC_
                 {
                     // Si la contraseña coincide, puedes mostrar el otro formulario
                     this.Hide();
-                    Iniciar iniciar = new Iniciar();
-                    iniciar.SetInformacion(nombre, usuario.Correo);
-                    iniciar.Show();
+                    Menu menu = new Menu();
+                    menu.SetInformacionMenu(nombre, usuario.Correo);
+                    menu.Show();
                 }
                 else
                 {
