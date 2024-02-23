@@ -119,5 +119,26 @@ namespace ProyectoFinalDelegatesC_
             return productosPorCategoria;
         }
 
+        public static List<Producto> BuscarProductoPorCoincidencia(string coincidencia)
+        {
+            List<Producto> productosCoincidentes = new List<Producto>();
+
+            foreach (var producto in productos.Values)
+            {
+                if (producto.Nombre.Contains(coincidencia, StringComparison.OrdinalIgnoreCase) || producto.Descripcion.Contains(coincidencia, StringComparison.OrdinalIgnoreCase)) //ver
+                {
+                    productosCoincidentes.Add(producto);
+                }
+            }
+
+            if (productosCoincidentes.Count == 0)
+            {
+                MessageBox.Show($"No se encontraron productos que coincidan con \"{coincidencia}\".");
+                return null;
+            }
+            
+            return productosCoincidentes;
+        }       
+
     }
 }
