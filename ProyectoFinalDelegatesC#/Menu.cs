@@ -40,9 +40,18 @@ namespace ProyectoFinalDelegatesC_
         private void button1_Click(object sender, EventArgs e) //Buscar
         {
             this.Hide();
-            Iniciar buscar = new Iniciar();
-            buscar.SetInformacion(Nombre, Correo);
-            buscar.Show();
+            if (GestorDeArchivos.ListaSize() == 0)
+            {
+                MessageBox.Show("No hay productos en el inventario, porfavor agregue productos antes de realizar la busqueda de un producto.");
+                Menu menu = new Menu();
+                menu.Show();
+            }
+            else
+            {
+                Iniciar buscar = new Iniciar();
+                buscar.SetInformacion(Nombre, Correo);
+                buscar.Show();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e) //Agregar
@@ -54,9 +63,19 @@ namespace ProyectoFinalDelegatesC_
 
         private void button3_Click(object sender, EventArgs e) //Compra venta
         {
+            
             this.Hide();
-            CompraVenta compraVenta = new CompraVenta();
-            compraVenta.Show();
+            if (GestorDeArchivos.ListaSize() ==0)
+            {
+                   MessageBox.Show("No hay productos en el inventario, porfavor agregue productos antes de realizar una compra o venta.");
+                Menu menu = new Menu();   
+                menu.Show();
+            }
+            else {
+                CompraVenta compraVenta = new CompraVenta();
+                compraVenta.Show();
+            }
+            
         }
 
         private void button4_Click(object sender, EventArgs e) //Editar

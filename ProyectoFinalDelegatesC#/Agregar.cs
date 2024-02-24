@@ -31,7 +31,8 @@ namespace ProyectoFinalDelegatesC_
             openFileDialog1.Filter = "Archivos de texto (*.txt)|*.txt|Archivos CSV (*.csv)|*.csv";
             openFileDialog1.FilterIndex = 1; // Índice del filtro predeterminado
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK){
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
 
                 filePath = openFileDialog1.FileName;
                 MessageBox.Show("Ruta del archivo seleccionado: " + filePath);
@@ -126,6 +127,11 @@ namespace ProyectoFinalDelegatesC_
         }
 
         private void Agregar_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CategoriaProducto_TextChanged(object sender, EventArgs e)
         {
 
         }
