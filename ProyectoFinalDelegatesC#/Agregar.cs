@@ -25,19 +25,13 @@ namespace ProyectoFinalDelegatesC_
         private void button1_Click(object sender, EventArgs e)
         {
             //BOTON ABRIR ARCHIVO
-
-
-
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
 
             openFileDialog1.InitialDirectory = "c:\\";
             openFileDialog1.Filter = "Archivos de texto (*.txt)|*.txt|Archivos CSV (*.csv)|*.csv";
             openFileDialog1.FilterIndex = 1; // Índice del filtro predeterminado
 
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK){
 
                 filePath = openFileDialog1.FileName;
                 MessageBox.Show("Ruta del archivo seleccionado: " + filePath);
@@ -82,11 +76,7 @@ namespace ProyectoFinalDelegatesC_
                 Producto productoAEvaular = new Producto(nombre, precio, cantidad, descripcion, categoria);
 
                 //Limpiar los textbox
-                NombreProducto.Text = "";
-                PrecioProducto.Text = "";
-                CantidadInicialProducto.Text = "";
-                DescripcionProducto.Text = "";
-                CategoriaProducto.Text = "";
+                limpiarTextBox();
 
                 //Verificar si hay cantidades bajas
                 SistemaDeNotificaciones.VerificarCantidadBaja(productoAEvaular, GestorDeArchivos.NotificarCantidadBaja);
@@ -97,6 +87,15 @@ namespace ProyectoFinalDelegatesC_
                 MessageBox.Show("Error al crear el producto, una propiedad no tiene el formato adecuado");
             }
 
+        }
+
+        private void limpiarTextBox()
+        {
+            NombreProducto.Text = "";
+            PrecioProducto.Text = "";
+            CantidadInicialProducto.Text = "";
+            DescripcionProducto.Text = "";
+            CategoriaProducto.Text = "";
         }
 
         private void LlenarDataGridViewDeDiccionario()

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agregar));
             button1 = new Button();
             openFileDialog1 = new OpenFileDialog();
             label1 = new Label();
@@ -71,11 +72,13 @@
             // 
             // button2
             // 
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.FlatAppearance.BorderSize = 0;
             button2.Location = new Point(12, 12);
             button2.Name = "button2";
             button2.Size = new Size(78, 63);
             button2.TabIndex = 2;
-            button2.Text = "Regresar";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 

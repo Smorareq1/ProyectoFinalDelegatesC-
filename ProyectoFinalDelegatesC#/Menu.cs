@@ -37,7 +37,7 @@ namespace ProyectoFinalDelegatesC_
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //Buscar
         {
             this.Hide();
             Iniciar buscar = new Iniciar();
@@ -45,11 +45,25 @@ namespace ProyectoFinalDelegatesC_
             buscar.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //Agregar
         {
             this.Hide();
             Agregar buscar = new Agregar();
             buscar.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e) //Compra venta
+        {
+            this.Hide();
+            CompraVenta compraVenta = new CompraVenta();
+            compraVenta.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e) //Editar
+        {
+            this.Hide();
+            Editar editar = new Editar();
+            editar.Show();
         }
     }
 }
