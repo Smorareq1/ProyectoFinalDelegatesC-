@@ -34,7 +34,7 @@ namespace ProyectoFinalDelegatesC_
                 {
                     string[] partes = linea.Split(',');
 
-                    if (partes.Length >= 3)
+                    if (partes.Length == 3) //Igual a 3 por que si no tiene mas propiedades o la linea es invalida :3
                     {
                         string nombre = partes[0].Trim();
                         string correo = partes[1].Trim();

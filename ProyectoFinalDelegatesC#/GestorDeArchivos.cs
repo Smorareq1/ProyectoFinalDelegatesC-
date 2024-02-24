@@ -14,6 +14,12 @@ namespace ProyectoFinalDelegatesC_
 
         public static void AgregarProductoALista(string nombre, double precio, int cantidad, string descripcion, string categoria)
         {
+            // Comprobar primero que la cantidad no sea negativa y que el precio no sea negativo
+            if (cantidad <= 0 || precio < 0)
+            {
+                throw new ArgumentException("La cantidad no puede ser menor o igual a 0 y el precio no puede ser menor a 0 en el producto: " + nombre);
+            }
+
             // Si el producto ya está en el diccionario, sumamos la cantidad
             if (productos.ContainsKey(nombre))
             {
@@ -26,11 +32,12 @@ namespace ProyectoFinalDelegatesC_
             }
         }
 
+
         public static void LeerArchivo(string rutaArchivo)
         {
             try
             {
-                // Leemos todas las líneas del archivo
+                
                 string[] lineas = File.ReadAllLines(rutaArchivo);
 
                 foreach (string linea in lineas)
@@ -55,6 +62,8 @@ namespace ProyectoFinalDelegatesC_
                         MessageBox.Show("La línea no tiene el formato adecuado: " + linea);
                     }
                 }
+                //Delegate
+                SistemaDeNotificaciones.VerificarCantidadesBajas(productos, NotificarCantidadBaja);
             }
             catch (Exception ex)
             {
@@ -78,25 +87,10 @@ namespace ProyectoFinalDelegatesC_
             }
         }
         
-        public static Producto BuscarProductoPorNombre(string nombre)
-        {
-            // Buscar un producto por su nombre en el diccionario
-            if (productos.ContainsKey(nombre))
-            {
-                Producto producto = productos[nombre];
-                MessageBox.Show($"Nombre: {producto.Nombre}, Precio: {producto.Precio}, Cantidad: {producto.Cantidad}, Descripción: {producto.Descripcion}, Categoría: {producto.Categoria}");
-                return producto;
-            }
-            else
-            {
-                MessageBox.Show("No se encontró el producto con el nombre especificado.");
-                return null;
-            }
-        }
 
-        public static void ListaSize()
+        public static int ListaSize()
         {
-            MessageBox.Show("El tamaño de la lista es: " + productos.Count);
+            return productos.Count;
         }
 
         public static List<Producto> BuscarProductosPorCategoria(string categoria)
@@ -125,7 +119,7 @@ namespace ProyectoFinalDelegatesC_
 
             foreach (var producto in productos.Values)
             {
-                if (producto.Nombre.Contains(coincidencia, StringComparison.OrdinalIgnoreCase) || producto.Descripcion.Contains(coincidencia, StringComparison.OrdinalIgnoreCase)) //ver
+                if (producto.Nombre.Contains(coincidencia, StringComparison.OrdinalIgnoreCase)) 
                 {
                     productosCoincidentes.Add(producto);
                 }
@@ -138,7 +132,38 @@ namespace ProyectoFinalDelegatesC_
             }
             
             return productosCoincidentes; 
-        }       
+        }
+
+        
+        //Usando delegates
+        public static void NotificarCantidadBaja(string nombre, int cantidad)
+        {
+            MessageBox.Show($"Quedan pocas unidades del producto {nombre}. Cantidad disponible: {cantidad}");
+        }
+
+        //Sobbreescribir el archivo txt con los datos del diccionario
+        public static void GuardarProductosEnArchivo(string rutaArchivo)
+        {
+            try
+            {
+                // Crear un arreglo de strings con los datos de los productos
+                string[] lineas = new string[productos.Count];
+
+                int i = 0;
+                foreach (var producto in productos.Values)
+                {
+                    lineas[i] = $"{producto.Nombre},{producto.Precio},{producto.Cantidad},{producto.Descripcion},{producto.Categoria}";
+                    i++;
+                }
+
+                // Escribir el arreglo de strings en el archivo
+                File.WriteAllLines(rutaArchivo, lineas);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al escribir el archivo: " + ex.Message);
+            }
+        }
 
     }
 }

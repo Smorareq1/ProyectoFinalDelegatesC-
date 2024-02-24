@@ -15,7 +15,7 @@ namespace ProyectoFinalDelegatesC_
     {
 
         //Variables
-        string Nombre;
+        private static string Nombre;
         string Correo;
 
 
