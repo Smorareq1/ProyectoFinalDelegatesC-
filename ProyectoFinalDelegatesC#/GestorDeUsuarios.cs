@@ -20,7 +20,7 @@ namespace ProyectoFinalDelegatesC_
                 return;
             }
 
-            // Agregar el usuario al diccionario
+            
             Usuarios.Add(nombre, new Usuario(nombre, correo, contrasena));
         }
 
@@ -40,7 +40,7 @@ namespace ProyectoFinalDelegatesC_
                         string correo = partes[1].Trim();
                         string contrasena = partes[2].Trim();
 
-                        // Agregar el usuario al diccionario
+                        
                         AgregarUsuarioALista(nombre, correo, contrasena);
                     }
                     else

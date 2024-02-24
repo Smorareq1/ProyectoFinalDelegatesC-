@@ -68,7 +68,7 @@ namespace ProyectoFinalDelegatesC_
                 string categoria = CategoriaProducto.Text.Trim();
 
                 // Agregamos el producto al diccionario
-                GestorDeArchivos.AgregarProductoALista(nombre, precio, cantidad, descripcion, categoria);
+                GestorDeArchivos.AgregarProductoALista(nombre, precio, cantidad, descripcion, categoria); // 
                 LlenarDataGridViewDeDiccionario();
                 MessageBox.Show("Producto agregado con éxito");
 

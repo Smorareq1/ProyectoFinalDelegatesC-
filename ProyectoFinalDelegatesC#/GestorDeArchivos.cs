@@ -14,7 +14,7 @@ namespace ProyectoFinalDelegatesC_
 
         public static void AgregarProductoALista(string nombre, double precio, int cantidad, string descripcion, string categoria)
         {
-            // Comprobar primero que la cantidad no sea negativa y que el precio no sea negativo
+            
             if (cantidad <= 0 || precio < 0)
             {
                 throw new ArgumentException("La cantidad no puede ser menor o igual a 0 y el precio no puede ser menor a 0 en el producto: " + nombre);
@@ -26,8 +26,7 @@ namespace ProyectoFinalDelegatesC_
                 productos[nombre].Cantidad += cantidad;
             }
             else
-            {
-                // Si no está en el diccionario, creamos un nuevo producto y lo agregamos
+            {                
                 productos.Add(nombre, new Producto(nombre, precio, cantidad, descripcion, categoria));
             }
         }
@@ -42,11 +41,11 @@ namespace ProyectoFinalDelegatesC_
 
                 foreach (string linea in lineas)
                 {
-                    // Dividimos cada línea en sus partes usando la coma como separador
+                    
                     string[] partes = linea.Split(',');
 
-                    // Aseguramos que tenemos suficientes partes para crear un producto
-                    if (partes.Length >= 5)
+                    
+                    if (partes.Length == 5) //Igual pq es la cantidad de atributos
                     {
                         string nombre = partes[0].Trim();
                         double precio = Convert.ToDouble(partes[1].Trim());
