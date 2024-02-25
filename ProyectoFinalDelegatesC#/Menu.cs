@@ -94,20 +94,53 @@ namespace ProyectoFinalDelegatesC_
 
         private void button5_Click(object sender, EventArgs e)
         {
-            GestorDeArchivos.GuardarProductosEnArchivo(GestorDeArchivos.path);
+            try {
 
-            //Reestablecer todas las variables
-            Nombre = "";
-            Correo = "";
+                if (GestorDeArchivos.path == "")
+                {
+                    string directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); // Obtiene la ruta de la carpeta de Documentos
+                    string filePath = Path.Combine(directory, "ProductosChepe.txt"); // Combina la ruta con el nombre del archivo
 
-            //
-            GestorDeArchivos.productos.Clear();
-            GestorDeArchivos.path = "";
+                    // Crear un arreglo de strings con los datos de los productos
+                    string[] lineas = new string[GestorDeArchivos.productos.Count];
 
-            // Regresar al menú
-            Form1 form1 = new Form1();
-            this.Close();
-            form1.Show();
+                    int i = 0;
+                    foreach (var producto in GestorDeArchivos.productos.Values)
+                    {
+                        lineas[i] = $"{producto.Nombre},{producto.Precio},{producto.Cantidad},{producto.Descripcion},{producto.Categoria}";
+                        i++;
+                    }
+
+                    // Escribir el arreglo de strings en el archivo
+                    File.WriteAllLines(filePath, lineas);
+
+                    MessageBox.Show("Productos guardados en ProductosChepe.txt en la carpeta de Descargas.");
+                }
+                else
+                {
+                    GestorDeArchivos.GuardarProductosEnArchivo(GestorDeArchivos.path);
+                }
+           
+
+                //Reestablecer todas las variables
+                Nombre = "";
+                Correo = "";
+
+                //
+                GestorDeArchivos.productos.Clear();
+                GestorDeArchivos.path = "";
+
+                // Regresar al menú
+                Form1 form1 = new Form1();
+                this.Close();
+                form1.Show();
+            
+                }
+            
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar el archivo: " + ex.Message);
+            }
 
         }
     }
