@@ -114,7 +114,7 @@ namespace ProyectoFinalDelegatesC_
                     // Escribir el arreglo de strings en el archivo
                     File.WriteAllLines(filePath, lineas);
 
-                    MessageBox.Show("Productos guardados en ProductosChepe.txt en la carpeta de Descargas.");
+                    MessageBox.Show("Productos guardados en ProductosChepe.txt en la carpeta de Documentos.");
                 }
                 else
                 {
