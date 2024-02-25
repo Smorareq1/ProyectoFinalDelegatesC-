@@ -13,7 +13,7 @@ namespace ProyectoFinalDelegatesC_
     public partial class CompraVenta : Form
     {
         //Variables
-        private static int CantidadDeProducto;
+        
         private Producto productoSeleccionado;
 
         public CompraVenta()
@@ -69,6 +69,9 @@ namespace ProyectoFinalDelegatesC_
                 {
                     productoSeleccionado.Cantidad = resultado;
                     MessageBox.Show("Venta realizada con éxito.");
+                    // Verificar si la cantidad de producto es baja
+                    SistemaDeNotificaciones.VerificarCantidadBaja(productoSeleccionado, GestorDeArchivos.NotificarCantidadBaja);
+
                     LlenarDataGridViewDeDiccionario();
                 }
             }

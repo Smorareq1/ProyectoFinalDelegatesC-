@@ -17,7 +17,7 @@ namespace ProyectoFinalDelegatesC_
         //Variables 
         private static string Nombre; //mantener su valor incluso si se crean múltiples instancias del Forms
         private static string Correo;
-        string filePath;
+
 
 
         public Iniciar()
@@ -31,8 +31,6 @@ namespace ProyectoFinalDelegatesC_
 
             // Llenar el ComboBox con las categorías de los productos
             llenarComboBox();
-
-
         }
 
         public void SetInformacion(string nombre, string correo)

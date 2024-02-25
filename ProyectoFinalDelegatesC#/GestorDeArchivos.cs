@@ -9,8 +9,19 @@ namespace ProyectoFinalDelegatesC_
 {
     internal class GestorDeArchivos
     {
+        public static string path;
+
+        //Notify
+        private static NotifyIcon notifyIcon = new NotifyIcon(); //Declarar el objeto de notificacion en la misma clase
+
         // Diccionario para almacenar los productos, utilizando el nombre como clave
         public static Dictionary<string, Producto> productos = new Dictionary<string, Producto>();
+
+        static GestorDeArchivos() //Constructor estatico para variables estaticas
+        {
+            notifyIcon.Icon = SystemIcons.Information;
+            notifyIcon.Visible = true;
+        }
 
         public static void AgregarProductoALista(string nombre, double precio, int cantidad, string descripcion, string categoria)
         {
@@ -133,11 +144,11 @@ namespace ProyectoFinalDelegatesC_
             return productosCoincidentes; 
         }
 
-        
+
         //Usando delegates
         public static void NotificarCantidadBaja(string nombre, int cantidad)
         {
-            MessageBox.Show($"Quedan pocas unidades del producto {nombre}. Cantidad disponible: {cantidad}");
+            notifyIcon.ShowBalloonTip(3000, "Cantidad baja", $"Quedan pocas unidades del producto {nombre}. Cantidad disponible: {cantidad}", ToolTipIcon.Warning);
         }
 
         //Sobbreescribir el archivo txt con los datos del diccionario
@@ -164,5 +175,12 @@ namespace ProyectoFinalDelegatesC_
             }
         }
 
+        public static void GetFilePath(string fileName)
+        {
+            path = fileName;
+        }
+
     }
+
+
 }

@@ -13,7 +13,8 @@ namespace ProyectoFinalDelegatesC_
     public partial class Agregar : Form
     {
         //Variables
-        string filePath;
+        public static string filePath;
+
         private static string Nombre;
 
 
@@ -39,7 +40,9 @@ namespace ProyectoFinalDelegatesC_
             }
 
             GestorDeArchivos.LeerArchivo(filePath);
-            filePath = null;
+            GestorDeArchivos.GetFilePath(filePath);
+
+            filePath = "";
             LlenarDataGridViewDeDiccionario();
 
 

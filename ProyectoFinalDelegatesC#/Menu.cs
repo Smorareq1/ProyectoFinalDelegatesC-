@@ -39,15 +39,14 @@ namespace ProyectoFinalDelegatesC_
 
         private void button1_Click(object sender, EventArgs e) //Buscar
         {
-            this.Hide();
+
             if (GestorDeArchivos.ListaSize() == 0)
             {
                 MessageBox.Show("No hay productos en el inventario, porfavor agregue productos antes de realizar la busqueda de un producto.");
-                Menu menu = new Menu();
-                menu.Show();
             }
             else
             {
+                this.Hide();
                 Iniciar buscar = new Iniciar();
                 buscar.SetInformacion(Nombre, Correo);
                 buscar.Show();
@@ -63,26 +62,53 @@ namespace ProyectoFinalDelegatesC_
 
         private void button3_Click(object sender, EventArgs e) //Compra venta
         {
-            
-            this.Hide();
-            if (GestorDeArchivos.ListaSize() ==0)
+
+
+            if (GestorDeArchivos.ListaSize() == 0)
             {
-                   MessageBox.Show("No hay productos en el inventario, porfavor agregue productos antes de realizar una compra o venta.");
-                Menu menu = new Menu();   
-                menu.Show();
+                MessageBox.Show("No hay productos en el inventario, porfavor agregue productos antes de realizar una compra o venta.");
             }
-            else {
+            else
+            {
+                this.Hide();
                 CompraVenta compraVenta = new CompraVenta();
                 compraVenta.Show();
             }
-            
+
         }
 
         private void button4_Click(object sender, EventArgs e) //Editar
         {
-            this.Hide();
-            Editar editar = new Editar();
-            editar.Show();
+            if (GestorDeArchivos.ListaSize() == 0)
+            {
+                MessageBox.Show("No hay productos en el inventario para editar");
+            }
+            else
+            {
+                this.Hide();
+                Editar editar = new Editar();
+                editar.Show();
+            }
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            GestorDeArchivos.GuardarProductosEnArchivo(GestorDeArchivos.path);
+
+            //Reestablecer todas las variables
+            Nombre = "";
+            Correo = "";
+
+            //
+            GestorDeArchivos.productos.Clear();
+            GestorDeArchivos.path = "";
+
+            // Regresar al menú
+            Form1 form1 = new Form1();
+            this.Close();
+            form1.Show();
+
         }
     }
 }

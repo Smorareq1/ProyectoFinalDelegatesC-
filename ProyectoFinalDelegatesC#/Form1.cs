@@ -1,7 +1,7 @@
 namespace ProyectoFinalDelegatesC_
 {
     public partial class Form1 : Form
-    {   
+    {
 
         //Variables
         string filePath;
@@ -50,10 +50,10 @@ namespace ProyectoFinalDelegatesC_
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
-            
+
             openFileDialog1.InitialDirectory = "c:\\";
             openFileDialog1.Filter = "Archivos de texto (*.txt)|*.txt|Archivos CSV (*.csv)|*.csv";
             openFileDialog1.FilterIndex = 1; // Índice del filtro predeterminado
@@ -67,6 +67,11 @@ namespace ProyectoFinalDelegatesC_
 
             GestorDeUsuarios.CargarUsuariosDesdeArchivo(filePath);
             MessageBox.Show("Archivo leído con éxito");
+        }
+
+        private void button3_Click(object sender, EventArgs e) //Terminar programa
+        {
+            Application.Exit();
         }
     }
 }

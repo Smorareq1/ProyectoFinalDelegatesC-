@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             textBox1 = new TextBox();
             label1 = new Label();
             label2 = new Label();
@@ -36,11 +37,12 @@
             textBox3 = new TextBox();
             button2 = new Button();
             openFileDialog1 = new OpenFileDialog();
+            button3 = new Button();
             SuspendLayout();
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(505, 214);
+            textBox1.Location = new Point(490, 214);
             textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(110, 23);
@@ -50,7 +52,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Showcard Gothic", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(294, 32);
+            label1.Location = new Point(294, 86);
             label1.Name = "label1";
             label1.Size = new Size(182, 28);
             label1.TabIndex = 1;
@@ -76,10 +78,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(315, 343);
+            button1.Location = new Point(294, 320);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(161, 22);
+            button1.Size = new Size(182, 22);
             button1.TabIndex = 6;
             button1.Text = "Ingresar";
             button1.UseVisualStyleBackColor = true;
@@ -87,7 +89,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(505, 260);
+            textBox3.Location = new Point(490, 260);
             textBox3.Margin = new Padding(3, 2, 3, 2);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(110, 23);
@@ -95,7 +97,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(285, 125);
+            button2.Location = new Point(284, 150);
             button2.Name = "button2";
             button2.Size = new Size(204, 23);
             button2.TabIndex = 9;
@@ -107,11 +109,24 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // button3
+            // 
+            button3.Location = new Point(12, 12);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 10;
+            button3.Text = "Salir";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(textBox3);
             Controls.Add(button1);
@@ -119,6 +134,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(textBox1);
+            DoubleBuffered = true;
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
@@ -136,5 +152,6 @@
         private TextBox textBox3;
         private Button button2;
         private OpenFileDialog openFileDialog1;
+        private Button button3;
     }
 }
