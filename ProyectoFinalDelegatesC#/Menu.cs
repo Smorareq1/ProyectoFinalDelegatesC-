@@ -27,7 +27,7 @@ namespace ProyectoFinalDelegatesC_
 
         private void Menu_Load(object sender, EventArgs e)
         {
-
+            label2.Text = "Bienvenido: " + Nombre;
         }
 
         public void SetInformacionMenu(string nombre, string correo)
@@ -94,7 +94,8 @@ namespace ProyectoFinalDelegatesC_
 
         private void button5_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
 
                 if (GestorDeArchivos.path == "")
                 {
@@ -120,7 +121,7 @@ namespace ProyectoFinalDelegatesC_
                 {
                     GestorDeArchivos.GuardarProductosEnArchivo(GestorDeArchivos.path);
                 }
-           
+
 
                 //Reestablecer todas las variables
                 Nombre = "";
@@ -134,13 +135,18 @@ namespace ProyectoFinalDelegatesC_
                 Form1 form1 = new Form1();
                 this.Close();
                 form1.Show();
-            
-                }
-            
+
+            }
+
             catch (Exception ex)
             {
                 MessageBox.Show("Error al guardar el archivo: " + ex.Message);
             }
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
 
         }
     }

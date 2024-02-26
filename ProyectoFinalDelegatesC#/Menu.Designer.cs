@@ -36,6 +36,7 @@
             button4 = new Button();
             notifyIcon1 = new NotifyIcon(components);
             button5 = new Button();
+            label2 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -97,6 +98,16 @@
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(384, 52);
+            label2.Name = "label2";
+            label2.Size = new Size(47, 15);
+            label2.TabIndex = 6;
+            label2.Text = "Usuario";
+            label2.Click += label2_Click;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -104,6 +115,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(label2);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -114,6 +126,7 @@
             Text = "Menu";
             Load += Menu_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -124,5 +137,6 @@
         private Button button4;
         private NotifyIcon notifyIcon1;
         private Button button5;
+        private Label label2;
     }
 }
