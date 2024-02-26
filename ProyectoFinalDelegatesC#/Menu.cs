@@ -130,7 +130,7 @@ namespace ProyectoFinalDelegatesC_
                 GestorDeArchivos.productos.Clear();
                 GestorDeArchivos.path = "";
 
-                // Regresar al menú
+                // Regresar al forms1
                 Form1 form1 = new Form1();
                 this.Close();
                 form1.Show();
