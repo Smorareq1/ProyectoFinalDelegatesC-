@@ -28,6 +28,12 @@ namespace ProyectoFinalDelegatesC_
         private void Menu_Load(object sender, EventArgs e)
         {
             label2.Text = "Bienvenido: " + Nombre;
+
+            // Calcular la posición x para centrar el label horizontalmente
+            int xPos = (this.ClientSize.Width - label2.Width) / 2;
+
+            // Establecer la posición centrada horizontalmente
+            label2.Location = new Point(xPos, label2.Location.Y);
         }
 
         public void SetInformacionMenu(string nombre, string correo)
@@ -120,6 +126,7 @@ namespace ProyectoFinalDelegatesC_
                 else
                 {
                     GestorDeArchivos.GuardarProductosEnArchivo(GestorDeArchivos.path);
+                    MessageBox.Show("Productos guardados en " + GestorDeArchivos.path);
                 }
 
 

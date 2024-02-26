@@ -103,9 +103,8 @@
             label2.AutoSize = true;
             label2.Location = new Point(384, 52);
             label2.Name = "label2";
-            label2.Size = new Size(47, 15);
+            label2.Size = new Size(0, 15);
             label2.TabIndex = 6;
-            label2.Text = "Usuario";
             label2.Click += label2_Click;
             // 
             // Menu

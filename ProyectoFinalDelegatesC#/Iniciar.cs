@@ -15,7 +15,7 @@ namespace ProyectoFinalDelegatesC_
         //INICIAR ES FILTRAR PRODUCTOS Y BUSCAR PRODUCTOS
 
         //Variables 
-        private static string Nombre; //mantener su valor incluso si se crean múltiples instancias del Forms
+        private static string Nombre; 
         private static string Correo;
 
 
@@ -27,7 +27,6 @@ namespace ProyectoFinalDelegatesC_
 
         private void Iniciar_Load(object sender, EventArgs e)
         {
-            nombreUsuario.Text = Nombre;
 
             // Llenar el ComboBox con las categorías de los productos
             llenarComboBox();

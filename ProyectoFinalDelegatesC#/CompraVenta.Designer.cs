@@ -84,6 +84,7 @@
             CantidadCompra.Name = "CantidadCompra";
             CantidadCompra.Size = new Size(100, 23);
             CantidadCompra.TabIndex = 4;
+            CantidadCompra.TextChanged += CantidadCompra_TextChanged;
             // 
             // CantidadVenta
             // 

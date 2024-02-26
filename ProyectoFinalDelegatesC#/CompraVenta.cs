@@ -13,7 +13,7 @@ namespace ProyectoFinalDelegatesC_
     public partial class CompraVenta : Form
     {
         //Variables
-        
+
         private Producto productoSeleccionado;
 
         public CompraVenta()
@@ -44,6 +44,7 @@ namespace ProyectoFinalDelegatesC_
                 productoSeleccionado.Cantidad += cantidadAComprar;
                 MessageBox.Show("Compra realizada con éxito.");
                 LlenarDataGridViewDeDiccionario();
+                CantidadCompra.Text = "";
 
             }
             else
@@ -51,7 +52,7 @@ namespace ProyectoFinalDelegatesC_
                 MessageBox.Show("Seleccione un producto antes de comprar.");
             }
 
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e) //Vender
@@ -71,6 +72,7 @@ namespace ProyectoFinalDelegatesC_
                     MessageBox.Show("Venta realizada con éxito.");
                     // Verificar si la cantidad de producto es baja
                     SistemaDeNotificaciones.VerificarCantidadBaja(productoSeleccionado, GestorDeArchivos.NotificarCantidadBaja);
+                    CantidadVenta.Text = "";
 
                     LlenarDataGridViewDeDiccionario();
                 }
@@ -80,7 +82,7 @@ namespace ProyectoFinalDelegatesC_
                 MessageBox.Show("Seleccione un producto antes de vender.");
             }
 
-            
+
         }
 
         private void LlenarDataGridViewDeDiccionario()
@@ -117,13 +119,18 @@ namespace ProyectoFinalDelegatesC_
                 if (GestorDeArchivos.productos.TryGetValue(nombreProducto, out Producto producto))
                 {
                     // Almacenar el producto seleccionado
-                    productoSeleccionado = producto;                    
+                    productoSeleccionado = producto;
                 }
                 else
                 {
                     MessageBox.Show("No se pudo encontrar el producto seleccionado en la lista de productos.");
                 }
             }
+        }
+
+        private void CantidadCompra_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
