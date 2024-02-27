@@ -17,7 +17,7 @@ namespace ProyectoFinalDelegatesC_
             MessageBox.Show("Bienvenido al sistema de ventas");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //Ingresar
         {
             string nombre = textBox1.Text.Trim();
             string contrasena = textBox3.Text.Trim();
@@ -34,6 +34,7 @@ namespace ProyectoFinalDelegatesC_
                     this.Hide();
                     Menu menu = new Menu();
                     menu.SetInformacionMenu(nombre, usuario.Correo);
+                    GestorDeArchivos.GetCorreo(usuario.Correo);
                     menu.Show();
                 }
                 else
@@ -48,7 +49,7 @@ namespace ProyectoFinalDelegatesC_
         }
 
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //Importar usuarios
         {
 
             OpenFileDialog openFileDialog1 = new OpenFileDialog();

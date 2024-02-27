@@ -14,9 +14,6 @@ namespace ProyectoFinalDelegatesC_
     {
         //INICIAR ES FILTRAR PRODUCTOS Y BUSCAR PRODUCTOS
 
-        //Variables 
-        private static string Nombre; 
-        private static string Correo;
 
 
 
@@ -32,12 +29,6 @@ namespace ProyectoFinalDelegatesC_
             llenarComboBox();
         }
 
-        public void SetInformacion(string nombre, string correo)
-        {
-            Nombre = nombre;
-            Correo = correo;
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {

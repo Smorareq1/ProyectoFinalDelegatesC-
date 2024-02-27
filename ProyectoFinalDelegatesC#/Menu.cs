@@ -16,7 +16,7 @@ namespace ProyectoFinalDelegatesC_
 
         //Variables
         private static string Nombre;
-        string Correo;
+        private static string Correo;
 
 
 
@@ -54,7 +54,6 @@ namespace ProyectoFinalDelegatesC_
             {
                 this.Hide();
                 Iniciar buscar = new Iniciar();
-                buscar.SetInformacion(Nombre, Correo);
                 buscar.Show();
             }
         }
@@ -133,6 +132,8 @@ namespace ProyectoFinalDelegatesC_
                 //Reestablecer todas las variables
                 Nombre = "";
                 Correo = "";
+                GestorDeArchivos.Correo = "";
+
 
                 //
                 GestorDeArchivos.productos.Clear();

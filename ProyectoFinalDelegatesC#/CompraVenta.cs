@@ -31,7 +31,7 @@ namespace ProyectoFinalDelegatesC_
 
         private void CompraVenta_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Porfavor seleccione un producto");
+            MessageBox.Show("Porfavor seleccione un producto con la linea completa");
             LlenarDataGridViewDeDiccionario();
         }
 
@@ -41,6 +41,13 @@ namespace ProyectoFinalDelegatesC_
             if (productoSeleccionado != null)
             {
                 int cantidadAComprar = Convert.ToInt32(CantidadCompra.Text.Trim());
+
+                //Verificar si cantidad a comprar es mayor a 0
+                if (cantidadAComprar <= 0)
+                {
+                    MessageBox.Show("La cantidad a comprar debe ser mayor a 0.");
+                    return;
+                }
                 productoSeleccionado.Cantidad += cantidadAComprar;
                 MessageBox.Show("Compra realizada con éxito.");
                 LlenarDataGridViewDeDiccionario();
@@ -61,6 +68,15 @@ namespace ProyectoFinalDelegatesC_
             if (productoSeleccionado != null)
             {
                 int cantidadAVender = Convert.ToInt32(CantidadVenta.Text.Trim());
+                //Verificar si cantidad a vender es mayor a 0
+
+                if (cantidadAVender <= 0)
+                {
+                    MessageBox.Show("La cantidad a vender debe ser mayor a 0.");
+                    return;
+                }
+
+
                 int resultado = productoSeleccionado.Cantidad - cantidadAVender;
                 if (resultado < 0)
                 {

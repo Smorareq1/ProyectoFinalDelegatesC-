@@ -10,6 +10,7 @@ namespace ProyectoFinalDelegatesC_
     internal class GestorDeArchivos
     {
         public static string path;
+        public static string Correo;
 
         //Notify
         private static NotifyIcon notifyIcon = new NotifyIcon(); //Declarar el objeto de notificacion en la misma clase
@@ -148,7 +149,7 @@ namespace ProyectoFinalDelegatesC_
         //Usando delegates
         public static void NotificarCantidadBaja(string nombre, int cantidad)
         {
-            notifyIcon.ShowBalloonTip(3000, "Cantidad baja", $"Quedan pocas unidades del producto {nombre}. Cantidad disponible: {cantidad}", ToolTipIcon.Warning);
+            notifyIcon.ShowBalloonTip(3000, "Cantidad baja", $"Quedan pocas unidades del producto {nombre}. Cantidad disponible: {cantidad}" + ". Enviando notificacion a " + Correo, ToolTipIcon.Warning);
         }
 
         //Sobbreescribir el archivo txt con los datos del diccionario
@@ -173,6 +174,11 @@ namespace ProyectoFinalDelegatesC_
             {
                 MessageBox.Show("Error al escribir el archivo: " + ex.Message);
             }
+        }
+
+        public static void GetCorreo(string correo)
+        {
+            Correo = correo;
         }
 
         public static void GetFilePath(string fileName)
